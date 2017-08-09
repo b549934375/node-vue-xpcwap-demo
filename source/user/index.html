@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <style>
+      .loading-fade{opacity:0}.loading-page{height:100%;width:100%;z-index:100000000;position:fixed;background:#000;transition:all 1s;-webkit-transition:all 1s;top:0;left:0}.rabbit-wrap{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);width:88px;height:88px;background-size:cover;text-align:center;line-height:96px}.rabbit{width:36px;display:inline-block;animation:jump 1s infinite ease-in;-webkit-animation:jump 1s infinite ease-in;transform-origin:50% 50%}@keyframes jump{0%{transform:translateY(0);animation-timing-function:ease-in}50%{transform:translateY(6px);animation-timing-function:ease-out}55%{transform:translateY(8px);animation-timing-function:ease-in}65%{transform:translateY(4px);animation-timing-function:ease-out}95%{transform:translateY(0);animation-timing-function:ease-in}100%{transform:translateY(0);animation-timing-function:ease-in}}@-webkit-keyframes jump{0%{-webkit-transform:translateY(0);-webkit-animation-timing-function:ease-in}50%{-webkit-transform:translateY(6px);-webkit-animation-timing-function:ease-out}55%{-webkit-transform:translateY(8px);-webkit-animation-timing-function:ease-in}65%{-webkit-transform:translateY(4px);-webkit-animation-timing-function:ease-out}95%{-webkit-transform:translateY(0);-webkit-animation-timing-function:ease-in}100%{-webkit-transform:translateY(0);-webkit-animation-timing-function:ease-in}}
+
+
+      @-webkit-keyframes ball-beat {
+        50% {
+          opacity: 0.2;
+          -webkit-transform: scale(0.75);
+                  transform: scale(0.75); }
+        100% {
+          opacity: 1;
+          -webkit-transform: scale(1);
+                  transform: scale(1); } }
+
+      @keyframes ball-beat {
+        50% {
+          opacity: 0.2;
+          -webkit-transform: scale(0.75);
+                  transform: scale(0.75); }
+        100% {
+          opacity: 1;
+          -webkit-transform: scale(1);
+                  transform: scale(1); } }
+
+      .loaders {
+        width: 100%;
+        box-sizing: border-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex: 0 1 auto;
+        flex: 0 1 auto;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+      }
+      .loader {
+        box-sizing: border-box;
+        display: flex;
+        flex: 0 1 auto;
+        flex-direction: column;
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: 25%;
+        // max-width: 25%;
+        // height: 200px;
+        align-items: center;
+        justify-content: center;
+      }
+      .ball-beat>div, .ball-scale-multiple>div {
+        background-color: #fff;
+        border-radius: 100%;
+      }
+      .ball-beat > div {
+        background-color: #fff;
+        width: 12px;
+        height: 12px;
+        border-radius: 100%;
+        background-color:#999;
+        margin: 2px;
+        -webkit-animation-fill-mode: both;
+                animation-fill-mode: both;
+        display: inline-block;
+        -webkit-animation: ball-beat 0.7s 0s infinite linear;
+                animation: ball-beat 0.7s 0s infinite linear; }
+        .ball-beat > div:nth-child(2n-1) {
+          -webkit-animation-delay: -0.35s !important;
+                  animation-delay: -0.35s !important; }
+
+      .ball-pulse > div:nth-child(1) {
+        -webkit-animation: scale 0.75s -0.24s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+                animation: scale 0.75s -0.24s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08); }
+    </style>
+    <!-- webpack会将入口JS文件引入的CSS或者vue组件中的css生成style标签或者生成独立的css文件并使用Link标签加载它 -->
+  </head>
+
+  <body>
+    <div class="loading loading-page">
+        <div class="rabbit-wrap">
+          <div class="loader">
+            <div class="loader-inner ball-beat">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <app id="app"></app>
+    <!-- webpack的HtmlWebpackPlugin插件会根据入口JS文件生成script标签并插入在这里或实现按需加载 -->
+  </body>
+</html>
