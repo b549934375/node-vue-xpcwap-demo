@@ -209,7 +209,7 @@ function getEntry(globPath) {
 
 > demo 中 dev 环境下中分别是 /View 和pathname + '.html'
 
-所以 demo 中通过 http://localhost:8080/View/user/index.html 可以访问到 user 模块下的 index 页面
+所以 demo 中通过 'http://localhost:8080/View/user/index.html' 可以访问到 user 模块下的 index 页面
 
 #### 打包
 
